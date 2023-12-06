@@ -2,6 +2,8 @@ import { useState } from "react";
 import "./App.css";
 
 import Background from "./Components/Background/Background";
+import Navbar from "./Components/Navbar/Navbar";
+import Hero from "./Components/Hero/Hero";
 
 function App() {
   let heroData = [
@@ -18,7 +20,19 @@ function App() {
 
   return (
     <div className="App">
-      <Background playStatus={playStatus} heroContent={heroContent} />
+      <Background
+        className="overlay"
+        playStatus={playStatus}
+        heroContent={heroContent}
+      />
+      <Navbar />
+      <Hero
+        setPlayStatus={setPlayStatus}
+        heroData={heroData[heroContent]}
+        heroContent={heroContent}
+        setHeroContent={setHeroContent}
+        playStatus={playStatus}
+      />
     </div>
   );
 }
